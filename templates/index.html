@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <title>Coiffeur rigolo</title>
+  </head>
+
+  <body>
+ <h1>Coiffeurs</h1>
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Addresse</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row['properties.nom'] }}</td>
+            <td>{{ row['properties.addresse'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        {% if has_previous %}
+            <a href="{{ url_for('index', page=page-1) }}">Précédent</a>
+        {% endif %}
+        {% if has_next %}
+            <a href="{{ url_for('index', page=page+1) }}">Suivant</a>
+        {% endif %}
+    </div>
+  </body>
+</html>
